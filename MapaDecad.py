@@ -1,3 +1,4 @@
+#git clone https://github.com/thuera/TCCSENAI.git
 #Começo importando a biblioteca que vou usar, e dizendo que quando eu for me referir a ela,
 #vou chamar de ctk
 import customtkinter as ctk

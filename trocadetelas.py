@@ -1,6 +1,13 @@
 import customtkinter as ctk
 from PIL import Image
 
+#AQUI ESTOU CRIANDO CONSTANTES PARA DEFINIR QUANTAS FILEIRAS E COLUNAS TEREMOS
+#É UMA BOA PRÁTICA SEMPRE QUE FORMOS CRIAR VARIÁVEIS QUE NÃO MUDAM, OU SEJA, CONSTANTES,
+#criarmos o nome da variável com LETRA MAIÚSCULA
+FILEIRAS = 5
+COLUNAS = 10
+
+
 # Funções de Navegação
 def mostrar_tela_inicial():
     esconder_todas_as_telas()
@@ -65,7 +72,7 @@ lbl_inicial = ctk.CTkLabel(
     fg_color="transparent"
 )
 
-lbl_inicial.pack(padx=50, pady=70)
+lbl_inicial.pack()
 
 
 btn_ir_sala1 = ctk.CTkButton(
@@ -112,16 +119,29 @@ frame_sala1 = ctk.CTkFrame(
     fg_color="#45b146"
 )
 
-
 lbl_sala1 = ctk.CTkLabel(
     frame_sala1,
-    text="Sala 1",
+    text="A bruxa de Blair",
     font=("Arial", 16, "bold"),
-    fg_color="#fef6e6",
+    fg_color="transparent",
     text_color="black"
 )
+lbl_sala1.pack(pady=10)
 
-lbl_sala1.pack(pady=20)
+imagem = ctk.CTkImage(
+     light_image=Image.open("bruxadblair.png"),
+     dark_image=Image.open("bruxadblair.png"),
+     size=(300, 350)
+    )
+
+label_imagem = ctk.CTkLabel(
+         frame_sala1,
+        text="",
+        image=imagem
+    )
+
+label_imagem.pack(pady=50)
+
 
 
 btn_voltar_sala1 = ctk.CTkButton(
@@ -130,7 +150,7 @@ btn_voltar_sala1 = ctk.CTkButton(
     command=mostrar_tela_inicial
 )
 
-btn_voltar_sala1.pack(pady=10)
+btn_voltar_sala1.pack(pady=100)
 
 
 # --------------------------------------------------
