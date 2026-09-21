@@ -3,6 +3,16 @@
 #vou chamar de ctk
 import customtkinter as ctk
 
+def btn_criacaodeMP():
+    frame_sala2 = ctk.CTkFrame(
+    app,
+    fg_color="#dd2c2c"
+)
+    CriarMapaDeCadeiras()
+
+
+
+
 def CriarMapaDeCadeiras():
     # AQUI O FILHO CHORA E A MÃE NÃO VÊ. Essa é a lógica de criação do mapa de cadeiras
     for x in range(FILEIRAS):

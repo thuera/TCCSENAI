@@ -9,6 +9,10 @@ COLUNAS = 10
 
 
 # Funções de Navegação
+def mostrar_mapa_de_cadeiras2():
+     esconder_todas_as_telas()
+     frame_cadeiras2.pack(fill="both", expand=1)
+
 def mostrar_tela_inicial():
     esconder_todas_as_telas()
     frame_inicial.pack(fill="both", expand=True)
@@ -150,7 +154,7 @@ btn_voltar_sala1 = ctk.CTkButton(
     command=mostrar_tela_inicial
 )
 
-btn_voltar_sala1.pack(pady=100)
+btn_voltar_sala1.pack(pady=50)
 
 
 # --------------------------------------------------
@@ -203,6 +207,7 @@ lbl_sala2.pack(pady=20)
 btn_voltar_sala2 = ctk.CTkButton(
     frame_sala2,
     text="Voltar para Início",
+    fg_color="#333333",
     command=mostrar_tela_inicial
 )
 
