@@ -1,3 +1,4 @@
+#Atualizado dia 22/09
 import customtkinter as ctk
 from PIL import Image
 
