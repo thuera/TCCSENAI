@@ -10,7 +10,7 @@ def btn_criacaodeMP():
 )
     CriarMapaDeCadeiras()
 
-
+aaa
 
 
 def CriarMapaDeCadeiras():
