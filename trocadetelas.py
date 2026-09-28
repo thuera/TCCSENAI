@@ -55,16 +55,6 @@ def esconder_todas_as_telas():
     frame_sala2.pack_forget()
 
 
-def botao_pra_adicionar_algo():
-    # Verifica se "algo_novo" está aparecendo na tela.
-    if algo_novo.winfo_ismapped():
-        # Se estiver aparecendo, remove.
-        algo_novo.place_forget()
-    else:
-        # Se não estiver aparecendo, adiciona.
-        algo_novo.place(x=370, y=200)
-
-
 # --------------------------------------------------
 # CONFIGURAÇÃO DO APP PRINCIPAL
 # --------------------------------------------------
@@ -75,7 +65,7 @@ app.title("Gerenciador de Salas de Cinema")
 app.geometry("1440x900")
 
 ctk.FontManager.load_font("C:/UsersAluno/Downloads/TCCSENAI-main/TCCSENAI/Runzoe-Regular")
-fc=ctk.CTkFont(family="Runzoe-Regular", size=50)
+fc=ctk.CTkFont(family="Runzoe-Regular", size=70)
 
 # --------------------------------------------------
 # 1. TELA INICIAL
@@ -89,48 +79,35 @@ frame_inicial = ctk.CTkFrame(
 
 lbl_inicial = ctk.CTkLabel(
     frame_inicial,
-    text="Cinema bem Ioco",
+    text="Cineminha fioty",
     font=fc,
     fg_color="transparent",
-    text_color="white"
+    text_color="white",
 )
 
-lbl_inicial.pack(pady=10)
+lbl_inicial.pack(pady=40)
 
 
 btn_ir_sala1 = ctk.CTkButton(
     frame_inicial,
-    text="Ir para Sala 1",
-    command=mostrar_sala1
+    text="Salas e Sessões",
+    command=mostrar_sala1,
+    width=160,
+    height=120
 )
 
-btn_ir_sala1.pack(pady=10)
+btn_ir_sala1.place(x=200, y=350)
 
 
 btn_ir_sala2 = ctk.CTkButton(
     frame_inicial,
-    text="Ir para Sala 2",
-    command=mostrar_sala2
+    text="Gerenciador de caixa",
+    command=mostrar_sala2,
+    width=160,
+    height=120
 )
 
-btn_ir_sala2.pack(pady=10)
-
-
-btn_adicionar = ctk.CTkButton(
-    frame_inicial,
-    text="Adicionar algo na tela",
-    command=botao_pra_adicionar_algo
-)
-
-btn_adicionar.pack(pady=10)
-
-
-algo_novo = ctk.CTkLabel(
-    frame_inicial,
-    text="Bagulho novo",
-    font=("Arial", 16, "bold"),
-    fg_color="#13d43a"
-)
+btn_ir_sala2.place(x=1100, y=350)
 
 
 # --------------------------------------------------
