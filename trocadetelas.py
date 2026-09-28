@@ -25,9 +25,6 @@ COLUNAS = 10
 
 
 # Funções de Navegação
-def mostrar_mapa_de_cadeiras2():
-     esconder_todas_as_telas()
-     frame_cadeiras2.pack(fill="both", expand=1)
 
 def mostrar_tela_inicial():
     esconder_todas_as_telas()
@@ -169,6 +166,8 @@ btn_voltar_sala1 = ctk.CTkButton(
 )
 
 btn_voltar_sala1.place(x=650, y=750)
+
+
 
 
 # --------------------------------------------------
