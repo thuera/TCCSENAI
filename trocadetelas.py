@@ -1,6 +1,21 @@
+"""
+git clone 
+
+cd TCCSENAI
+
+git add .
+
+git commit -m ""
+
+git push
+
+"""
+
 #Atualizado dia 22/09
 import customtkinter as ctk
 from PIL import Image
+
+
 
 #AQUI ESTOU CRIANDO CONSTANTES PARA DEFINIR QUANTAS FILEIRAS E COLUNAS TEREMOS
 #É UMA BOA PRÁTICA SEMPRE QUE FORMOS CRIAR VARIÁVEIS QUE NÃO MUDAM, OU SEJA, CONSTANTES,
@@ -57,8 +72,10 @@ def botao_pra_adicionar_algo():
 app = ctk.CTk()
 
 app.title("Gerenciador de Salas de Cinema")
-app.geometry("800x700")
+app.geometry("1440x900")
 
+ctk.FontManager.load_font("C:/UsersAluno/Downloads/TCCSENAI-main/TCCSENAI/Runzoe-Regular")
+fc=ctk.CTkFont(family="Runzoe-Regular", size=50)
 
 # --------------------------------------------------
 # 1. TELA INICIAL
@@ -66,18 +83,19 @@ app.geometry("800x700")
 
 frame_inicial = ctk.CTkFrame(
     app,
-    fg_color="#FFD587"
+    fg_color="#424242"
 )
 
 
 lbl_inicial = ctk.CTkLabel(
     frame_inicial,
     text="Cinema bem Ioco",
-    font=("Arial", 16, "bold"),
-    fg_color="transparent"
+    font=fc,
+    fg_color="transparent",
+    text_color="white"
 )
 
-lbl_inicial.pack()
+lbl_inicial.pack(pady=10)
 
 
 btn_ir_sala1 = ctk.CTkButton(
@@ -86,7 +104,7 @@ btn_ir_sala1 = ctk.CTkButton(
     command=mostrar_sala1
 )
 
-btn_ir_sala1.place(x=330, y=70)
+btn_ir_sala1.pack(pady=10)
 
 
 btn_ir_sala2 = ctk.CTkButton(
@@ -95,7 +113,7 @@ btn_ir_sala2 = ctk.CTkButton(
     command=mostrar_sala2
 )
 
-btn_ir_sala2.place(x=330, y=120)
+btn_ir_sala2.pack(pady=10)
 
 
 btn_adicionar = ctk.CTkButton(
@@ -104,7 +122,7 @@ btn_adicionar = ctk.CTkButton(
     command=botao_pra_adicionar_algo
 )
 
-btn_adicionar.place(x=330, y=170)
+btn_adicionar.pack(pady=10)
 
 
 algo_novo = ctk.CTkLabel(
@@ -121,22 +139,22 @@ algo_novo = ctk.CTkLabel(
 
 frame_sala1 = ctk.CTkFrame(
     app,
-    fg_color="#45b146"
+    fg_color="#424242"
 )
 
 lbl_sala1 = ctk.CTkLabel(
     frame_sala1,
-    text="A bruxa de Blair",
+    text="A Bruxa de Blair",
     font=("Arial", 16, "bold"),
     fg_color="transparent",
-    text_color="black"
+    text_color="white"
 )
-lbl_sala1.pack(pady=10)
+lbl_sala1.pack(pady=20)
 
 imagem = ctk.CTkImage(
-     light_image=Image.open("bruxadblair.png"),
-     dark_image=Image.open("bruxadblair.png"),
-     size=(300, 350)
+     light_image=Image.open("C:/Users/Aluno/Downloads/TCCSENAI-main/TCCSENAI/bruxadblair.png"),
+     dark_image=Image.open("C:/Users/Aluno/Downloads/TCCSENAI-main/TCCSENAI/bruxadblair.png"),
+     size=(125, 175)
     )
 
 label_imagem = ctk.CTkLabel(
@@ -145,7 +163,7 @@ label_imagem = ctk.CTkLabel(
         image=imagem
     )
 
-label_imagem.pack(pady=50)
+label_imagem.place(x=0, y=0)
 
 
 
@@ -190,7 +208,7 @@ btn_voltar_sala1.pack(pady=50)
 
 frame_sala2 = ctk.CTkFrame(
     app,
-    fg_color="#dd2c2c"
+    fg_color="#424242"
 )
 
 
@@ -198,7 +216,7 @@ lbl_sala2 = ctk.CTkLabel(
     frame_sala2,
     text="Sala 2",
     font=("Arial", 16, "bold"),
-    fg_color="#eef6e6",
+    fg_color="transparent",
     text_color="black"
 )
 
@@ -220,7 +238,6 @@ btn_voltar_sala2.pack(pady=10)
 # --------------------------------------------------
 
 mostrar_tela_inicial()
-
 
 # --------------------------------------------------
 # INICIA O LOOP DO APLICATIVO
