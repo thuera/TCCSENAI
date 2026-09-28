@@ -119,19 +119,32 @@ frame_sala1 = ctk.CTkFrame(
     fg_color="#424242"
 )
 
-lbl_sala1 = ctk.CTkLabel(
+
+lblsala1 = ctk.CTkLabel(
+    frame_sala1,
+    text="Sala de sessões",
+    font=("Arial", 30, "bold"),
+    fg_color="transparent",
+    text_color="white"
+)
+
+lblsala1.pack(pady=30)
+
+Tituloss1 = ctk.CTkLabel(
     frame_sala1,
     text="A Bruxa de Blair",
     font=("Arial", 16, "bold"),
     fg_color="transparent",
     text_color="white"
 )
-lbl_sala1.pack(pady=20)
+
+Tituloss1.place(x=190, y=180)
 
 imagem = ctk.CTkImage(
+
      light_image=Image.open("C:/Users/Aluno/Downloads/TCCSENAI-main/TCCSENAI/bruxadblair.png"),
      dark_image=Image.open("C:/Users/Aluno/Downloads/TCCSENAI-main/TCCSENAI/bruxadblair.png"),
-     size=(125, 175)
+     size=(250, 325)
     )
 
 label_imagem = ctk.CTkLabel(
@@ -140,8 +153,13 @@ label_imagem = ctk.CTkLabel(
         image=imagem
     )
 
-label_imagem.place(x=0, y=0)
+label_imagem.place(x=125, y=250)
 
+btn_ir_para_sessao1 = ctk.CTkButton(
+    frame_sala1,
+    text="Mapa de assentos"
+)
+btn_ir_para_sessao1.place(x=185, y=600)
 
 
 btn_voltar_sala1 = ctk.CTkButton(
@@ -150,7 +168,7 @@ btn_voltar_sala1 = ctk.CTkButton(
     command=mostrar_tela_inicial
 )
 
-btn_voltar_sala1.pack(pady=50)
+btn_voltar_sala1.place(x=650, y=750)
 
 
 # --------------------------------------------------
