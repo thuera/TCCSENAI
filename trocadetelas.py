@@ -63,7 +63,7 @@ app = ctk.CTk()
 app.title("Gerenciador de Salas de Cinema")
 app.geometry("1440x900")
 
-ctk.FontManager.load_font("C:/Users/Aluno/Downloads/TCCSENAI-main/TCCSENAI-main/TCCSENAI/Runzoe-Regular")
+ctk.FontManager.load_font("C:/Users/Aluno/Downloads/TCCSENAI-main/TCCSENAI-main/TCCSENAI/Runzoe-Regular.otf")
 fc=ctk.CTkFont(family="Runzoe-Regular", size=70)
 
 # --------------------------------------------------
@@ -91,6 +91,7 @@ btn_ir_sala1 = ctk.CTkButton(
     frame_inicial,
     text="Salas e Sessões",
     command=mostrar_sala1,
+    font=("Arial", 15, "bold"),
     width=160,
     height=120
 )
@@ -102,6 +103,7 @@ btn_ir_sala2 = ctk.CTkButton(
     frame_inicial,
     text="Gerenciador de caixa",
     command=mostrar_sala2,
+    font=("Arial", 15, "bold"),
     width=160,
     height=120
 )
@@ -138,6 +140,21 @@ Tituloss1 = ctk.CTkLabel(
 )
 
 Tituloss1.place(x=190, y=180)
+
+imagem2 = ctk.CTkImage(
+
+     light_image=Image.open("C:/Users/Aluno/Downloads/TCCSENAI-main/TCCSENAI-main/TCCSENAI/transformers.png"),
+     dark_image=Image.open("C:/Users/Aluno/Downloads/TCCSENAI-main/TCCSENAI-main/TCCSENAI/transformers.png"),
+     size=(250, 325)
+    )
+
+imagem2 = ctk.CTkLabel(
+     frame_sala1,
+    text="",
+    image=imagem2
+)
+
+imagem2.place(x=425, y=250)
 
 imagem = ctk.CTkImage(
 
