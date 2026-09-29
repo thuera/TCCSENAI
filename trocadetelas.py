@@ -63,7 +63,7 @@ app = ctk.CTk()
 app.title("Gerenciador de Salas de Cinema")
 app.geometry("1440x900")
 
-ctk.FontManager.load_font("C:/UsersAluno/Downloads/TCCSENAI-main/TCCSENAI/Runzoe-Regular")
+ctk.FontManager.load_font("C:/Users/Aluno/Downloads/TCCSENAI-main/TCCSENAI-main/TCCSENAI/Runzoe-Regular")
 fc=ctk.CTkFont(family="Runzoe-Regular", size=70)
 
 # --------------------------------------------------
@@ -141,8 +141,8 @@ Tituloss1.place(x=190, y=180)
 
 imagem = ctk.CTkImage(
 
-     light_image=Image.open("C:/Users/Aluno/Downloads/TCCSENAI-main/TCCSENAI/bruxadblair.png"),
-     dark_image=Image.open("C:/Users/Aluno/Downloads/TCCSENAI-main/TCCSENAI/bruxadblair.png"),
+     light_image=Image.open("C:/Users/Aluno/Downloads/TCCSENAI-main/TCCSENAI-main/TCCSENAI/bruxadblair.png"),
+     dark_image=Image.open("C:/Users/Aluno/Downloads/TCCSENAI-main/TCCSENAI-main/TCCSENAI/bruxadblair.png"),
      size=(250, 325)
     )
 
