@@ -8,7 +8,6 @@ def btn_criacaodeMP():
     app,
     fg_color="#dd2c2c"
 )
-    CriarMapaDeCadeiras()
 
 
 
@@ -51,7 +50,7 @@ COLUNAS = 10
 app = ctk.CTk()  #AQUI INICIANDO A CRIACAO DA JANELA COM O NOME DE app
 app.title("Gerenciamento de Cinema")  #AQUI O TITULO DA JANELA
 app.geometry("800x450")  #AQUI É O TAMANHO DA JANELA
-
+app.configure(fg_color="#000000")
 # Cria uma label, que é um espaço pra texto, e serve para indicar o Titulo do Filme
 filme = ctk.CTkLabel(app, text="Filme: Vampeta, meu tesouro")
 filme.pack(pady=(20, 5))  #O comando PACK manda colocar na tela. Depois vamos aprender a usar o place, que acho melhor.
@@ -60,7 +59,7 @@ filme.pack(pady=(20, 5))  #O comando PACK manda colocar na tela. Depois vamos ap
 tela = ctk.CTkLabel(
     app,
     text="T E L A",
-    fg_color="#333333",  #AQUI É O EFEITINHO NO FUNDO DE FICAR CINZA MAIS CLARINHO
+    fg_color="#CECECE",  #AQUI É O EFEITINHO NO FUNDO DE FICAR CINZA MAIS CLARINHO
 )                       #Esse 333333 é o código da cor do cinzinha.
 
 tela.pack(fill="x", padx=60, pady=20)  #AQUI O FILL X manda ele alargar o espaço todo pelo eixo X

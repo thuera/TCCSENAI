@@ -9,15 +9,11 @@ git commit -m ""
 
 git push
 
-aaaaaa
-
 """
-
+#verdana e times new roman
 #Atualizado dia 22/09
 import customtkinter as ctk
 from PIL import Image
-
-
 
 #AQUI ESTOU CRIANDO CONSTANTES PARA DEFINIR QUANTAS FILEIRAS E COLUNAS TEREMOS
 #É UMA BOA PRÁTICA SEMPRE QUE FORMOS CRIAR VARIÁVEIS QUE NÃO MUDAM, OU SEJA, CONSTANTES,
@@ -63,7 +59,7 @@ app = ctk.CTk()
 app.title("Gerenciador de Salas de Cinema")
 app.geometry("1440x900")
 
-ctk.FontManager.load_font("C:/Users/Aluno/Downloads/TCCSENAI-main/TCCSENAI-main/TCCSENAI/Runzoe-Regular.otf")
+ctk.FontManager.load_font("C:/Users/Aluno/Downloads/TCCSENAI-main/TCCSENAI/Runzoe-Regular.otf")
 fc=ctk.CTkFont(family="Runzoe-Regular", size=70)
 
 # --------------------------------------------------
@@ -131,7 +127,7 @@ lblsala1 = ctk.CTkLabel(
 
 lblsala1.pack(pady=30)
 
-Tituloss1 = ctk.CTkLabel(
+Tituloss3 = ctk.CTkLabel(
     frame_sala1,
     text="A Bruxa de Blair",
     font=("Arial", 16, "bold"),
@@ -139,12 +135,45 @@ Tituloss1 = ctk.CTkLabel(
     text_color="white"
 )
 
-Tituloss1.place(x=190, y=180)
+Tituloss3.place(x=190, y=180)
+
+
+imagem3 = ctk.CTkImage(
+
+     light_image=Image.open("C:/Users/Aluno/Downloads/TCCSENAI-main/TCCSENAI/fury.png"),
+     dark_image=Image.open("C:/Users/Aluno/Downloads/TCCSENAI-main/TCCSENAI/fury.png"),
+     size=(250, 325)
+    )
+
+imagem3 = ctk.CTkLabel(
+     frame_sala1,
+    text="",
+    image=imagem3
+)
+
+imagem3.place(x=1100, y=250)
+
+btn_ir_para_sessao3 = ctk.CTkButton(
+    frame_sala1,
+    text="Mapa de assentos"
+)
+btn_ir_para_sessao3.place(x=1160, y=600)
+
+
+Tituloss2 = ctk.CTkLabel(
+    frame_sala1,
+    text="Corações de ferro",
+    font=("Arial", 16, "bold"),
+    fg_color="transparent",
+    text_color="white"
+)
+
+Tituloss2.place(x=1155, y=180)
 
 imagem2 = ctk.CTkImage(
 
-     light_image=Image.open("C:/Users/Aluno/Downloads/TCCSENAI-main/TCCSENAI-main/TCCSENAI/transformers.png"),
-     dark_image=Image.open("C:/Users/Aluno/Downloads/TCCSENAI-main/TCCSENAI-main/TCCSENAI/transformers.png"),
+     light_image=Image.open("C:/Users/Aluno/Downloads/TCCSENAI-main/TCCSENAI/transformers.png"),
+     dark_image=Image.open("C:/Users/Aluno/Downloads/TCCSENAI-main/TCCSENAI/transformers.png"),
      size=(250, 325)
     )
 
@@ -153,13 +182,29 @@ imagem2 = ctk.CTkLabel(
     text="",
     image=imagem2
 )
+imagem2.place(x=605, y=250)
 
-imagem2.place(x=425, y=250)
+btn_ir_para_sessao2 = ctk.CTkButton(
+    frame_sala1,
+    text="Mapa de assentos"
+)
+btn_ir_para_sessao2.place(x=665, y=600)
+
+
+Tituloss1 = ctk.CTkLabel(
+    frame_sala1,
+    text="Transformers: A era da extinção",
+    font=("Arial", 16, "bold"),
+    fg_color="transparent",
+    text_color="white"
+)
+
+Tituloss1.place(x=610, y=180)
 
 imagem = ctk.CTkImage(
 
-     light_image=Image.open("C:/Users/Aluno/Downloads/TCCSENAI-main/TCCSENAI-main/TCCSENAI/bruxadblair.png"),
-     dark_image=Image.open("C:/Users/Aluno/Downloads/TCCSENAI-main/TCCSENAI-main/TCCSENAI/bruxadblair.png"),
+     light_image=Image.open("C:/Users/Aluno/Downloads/TCCSENAI-main/TCCSENAI/bruxadblair.png"),
+     dark_image=Image.open("C:/Users/Aluno/Downloads/TCCSENAI-main/TCCSENAI/bruxadblair.png"),
      size=(250, 325)
     )
 
@@ -170,6 +215,7 @@ label_imagem = ctk.CTkLabel(
     )
 
 label_imagem.place(x=125, y=250)
+
 
 btn_ir_para_sessao1 = ctk.CTkButton(
     frame_sala1,
