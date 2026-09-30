@@ -24,6 +24,11 @@ COLUNAS = 10
 
 # Funções de Navegação
 
+
+#=================================
+
+
+#=========================
 def mostrar_tela_inicial():
     esconder_todas_as_telas()
     frame_inicial.pack(fill="both", expand=True)
@@ -155,7 +160,8 @@ imagem3.place(x=1100, y=250)
 
 btn_ir_para_sessao3 = ctk.CTkButton(
     frame_sala1,
-    text="Mapa de assentos"
+    text="Mapa de assentos",
+    
 )
 btn_ir_para_sessao3.place(x=1160, y=600)
 
@@ -233,34 +239,6 @@ btn_voltar_sala1 = ctk.CTkButton(
 btn_voltar_sala1.place(x=650, y=750)
 
 
-
-
-# --------------------------------------------------
-# IMAGEM DA SALA 1
-# --------------------------------------------------
-
-# Para utilizar imagens no CustomTkinter, podemos usar
-# CTkImage junto com a biblioteca Pillow.
-
-# Exemplo:
-#
-# from PIL import Image
-#
-# imagem = ctk.CTkImage(
-#     light_image=Image.open("borat.png"),
-#     dark_image=Image.open("borat.png"),
-#     size=(300, 200)
-# )
-#
-# label_imagem = ctk.CTkLabel(
-#     frame_sala1,
-#     text="",
-#     image=imagem
-# )
-#
-# label_imagem.pack(pady=20)
-
-
 # --------------------------------------------------
 # 3. TELA DA SALA 2
 # --------------------------------------------------
@@ -291,6 +269,14 @@ btn_voltar_sala2 = ctk.CTkButton(
 
 btn_voltar_sala2.pack(pady=10)
 
+# --------------------------------------------------
+# 4. TELA ASSENTOS SALA 1
+# --------------------------------------------------
+
+frame_assentos_sala1 = ctk.CTkFrame(
+    app,
+    fg_color="#424242"
+)
 
 # --------------------------------------------------
 # DEFINE QUAL TELA ABRE PRIMEIRO

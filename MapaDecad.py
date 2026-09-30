@@ -47,17 +47,17 @@ def CriarMapaDeCadeiras():
 FILEIRAS = 5
 COLUNAS = 10
 
-app = ctk.CTk()  #AQUI INICIANDO A CRIACAO DA JANELA COM O NOME DE app
-app.title("Gerenciamento de Cinema")  #AQUI O TITULO DA JANELA
-app.geometry("800x450")  #AQUI É O TAMANHO DA JANELA
-app.configure(fg_color="#000000")
+app1 = ctk.CTk()  #AQUI INICIANDO A CRIACAO DA JANELA COM O NOME DE app
+app1.title("Gerenciamento de Cinema")  #AQUI O TITULO DA JANELA
+app1.geometry("800x450")  #AQUI É O TAMANHO DA JANELA
+app1.configure(fg_color="#000000")
 # Cria uma label, que é um espaço pra texto, e serve para indicar o Titulo do Filme
-filme = ctk.CTkLabel(app, text="Filme: Vampeta, meu tesouro")
+filme = ctk.CTkLabel(app1, text="Filme: Vampeta, meu tesouro", text_color="#ffffff")
 filme.pack(pady=(20, 5))  #O comando PACK manda colocar na tela. Depois vamos aprender a usar o place, que acho melhor.
 
 # QUADRADINHO QUE VAI MOSTRAR ONDE É A TELA DO CINEMA
 tela = ctk.CTkLabel(
-    app,
+    app1,
     text="T E L A",
     fg_color="#CECECE",  #AQUI É O EFEITINHO NO FUNDO DE FICAR CINZA MAIS CLARINHO
 )                       #Esse 333333 é o código da cor do cinzinha.
@@ -65,11 +65,11 @@ tela = ctk.CTkLabel(
 tela.pack(fill="x", padx=60, pady=20)  #AQUI O FILL X manda ele alargar o espaço todo pelo eixo X
 
 # Container para os Assentos
-frame_assentos = ctk.CTkFrame(app, fg_color="transparent")  #AQUI EU DIGO PRA CRIAR UM FRAME com fundo
+frame_assentos = ctk.CTkFrame(app1, fg_color="transparent")  #AQUI EU DIGO PRA CRIAR UM FRAME com fundo
                                                             #transparente, por isso o fg_color
 frame_assentos.pack()  #Aqui eu mando inserir o frame na tela.
 
 CriarMapaDeCadeiras()
 
 # Execução da Janela. SEMPRE vamos ter que ter isso no final do nosso código, senão a janela não exibe
-app.mainloop()
+app1.mainloop()
