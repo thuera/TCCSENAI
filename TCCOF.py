@@ -3,6 +3,16 @@ import psycopg as pg
 from PIL import Image
 
 
+DB_CONFIG = {
+    'dbname': 'cinema',
+    'user': 'postgres',
+    'password': 'root',
+    'host': 'localhost',
+    'port': '5432'
+}
+
+
+
 # ==========================================================
 # CONSTANTES
 # ==========================================================
@@ -164,6 +174,18 @@ frame_inicial = ctk.CTkFrame(
     fg_color="#424242"
 )
 
+lbl_claquete_inicial =ctk.CTkLabel(
+    frame_inicial,
+    text="🎬",
+    font=fc,
+    fg_color="transparent",
+    text_color="white"  
+)
+lbl_claquete_inicial.place(
+    x=690,
+    y=160
+
+)
 
 lbl_inicial = ctk.CTkLabel(
     frame_inicial,
@@ -173,7 +195,10 @@ lbl_inicial = ctk.CTkLabel(
     text_color="white"
 )
 
-lbl_inicial.pack(pady=40)
+lbl_inicial.place(
+    x=460,
+    y=90
+)
 
 
 btn_ir_sala1 = ctk.CTkButton(
@@ -416,7 +441,7 @@ btn_voltar_sala1.place(
 
 frame_assentos_sala1 = ctk.CTkFrame(
     app,
-    fg_color="#000000"
+    fg_color="#424242"
 )
 
 
