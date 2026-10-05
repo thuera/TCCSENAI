@@ -1,5 +1,5 @@
 """
-git clone 
+git clone https://github.com/thuera/TCCSENAI
 
 cd TCCSENAI
 
@@ -8,12 +8,14 @@ git add .
 git commit -m ""
 
 git push
-AAA
+
 """
 #verdana e times new roman
 #Atualizado dia 22/09
 import customtkinter as ctk
+import psycopg as pg
 from PIL import Image
+
 
 #AQUI ESTOU CRIANDO CONSTANTES PARA DEFINIR QUANTAS FILEIRAS E COLUNAS TEREMOS
 #É UMA BOA PRÁTICA SEMPRE QUE FORMOS CRIAR VARIÁVEIS QUE NÃO MUDAM, OU SEJA, CONSTANTES,
@@ -54,6 +56,40 @@ def esconder_todas_as_telas():
     frame_sala1.pack_forget()
     frame_sala2.pack_forget()
 
+def mostrar_mapa_de_assentos1():
+    esconder_todas_as_telas()
+    frame_assentos_sala1.pack(fill="both", expand=True)
+    
+def CriarMapaDeCadeiras():
+    # Defina o tamanho dos botões e o espaçamento (padding) entre eles
+    largura_btn = 45
+    altura_btn = 40
+    espaco_x = 8  # Margem horizontal entre as cadeiras
+    espaco_y = 8  # Margem vertical entre as fileiras
+
+    for x in range(FILEIRAS):
+        letra = chr(65 + x)
+        
+        # Calcula a posição Y da fileira atual (linha x)
+        pos_y = x * (altura_btn + espaco_y)
+
+        for y in range(1, COLUNAS + 1):
+            codigo = f"{letra}{y}"
+            
+            # Calcula a posição X da cadeira atual (coluna y - 1)
+            pos_x = (y - 1) * (largura_btn + espaco_x)
+
+            btn = ctk.CTkButton(
+                frame_sala1,
+                text=codigo,
+                width=largura_btn,
+                height=altura_btn,
+                fg_color="#2FA572",
+                hover_color="#1E6B4A"
+            )
+            
+            # Substituindo o .grid() pelo .place() com as coordenadas calculadas
+            btn.place(x=pos_x, y=pos_y)
 
 # --------------------------------------------------
 # CONFIGURAÇÃO DO APP PRINCIPAL
@@ -70,6 +106,10 @@ fc=ctk.CTkFont(family="Runzoe-Regular", size=70)
 # --------------------------------------------------
 # 1. TELA INICIAL
 # --------------------------------------------------
+frame_sala2 = ctk.CTkFrame(
+    app,
+    fg_color="#424242"
+)
 
 frame_inicial = ctk.CTkFrame(
     app,
@@ -111,6 +151,15 @@ btn_ir_sala2 = ctk.CTkButton(
 
 btn_ir_sala2.place(x=1100, y=350)
 
+# --------------------------------------------------
+# MAPA DE ASSENTOS SALA 1
+# --------------------------------------------------
+
+frame_assentos_sala1=ctk.CTkFrame(
+    app,
+    fg_color='#000000'
+)
+
 
 # --------------------------------------------------
 # 2. TELA DA SALA 1
@@ -131,6 +180,8 @@ lblsala1 = ctk.CTkLabel(
 )
 
 lblsala1.pack(pady=30)
+
+#==========================
 
 Tituloss3 = ctk.CTkLabel(
     frame_sala1,
@@ -165,6 +216,7 @@ btn_ir_para_sessao3 = ctk.CTkButton(
 )
 btn_ir_para_sessao3.place(x=1160, y=600)
 
+#=============================================
 
 Tituloss2 = ctk.CTkLabel(
     frame_sala1,
@@ -194,8 +246,10 @@ btn_ir_para_sessao2 = ctk.CTkButton(
     frame_sala1,
     text="Mapa de assentos"
 )
+
 btn_ir_para_sessao2.place(x=665, y=600)
 
+#=============================================
 
 Tituloss1 = ctk.CTkLabel(
     frame_sala1,
@@ -225,7 +279,8 @@ label_imagem.place(x=125, y=250)
 
 btn_ir_para_sessao1 = ctk.CTkButton(
     frame_sala1,
-    text="Mapa de assentos"
+    text="Mapa de assentos",
+    command=mostrar_mapa_de_assentos1()
 )
 btn_ir_para_sessao1.place(x=185, y=600)
 
@@ -242,11 +297,6 @@ btn_voltar_sala1.place(x=650, y=750)
 # --------------------------------------------------
 # 3. TELA DA SALA 2
 # --------------------------------------------------
-
-frame_sala2 = ctk.CTkFrame(
-    app,
-    fg_color="#424242"
-)
 
 
 lbl_sala2 = ctk.CTkLabel(
@@ -269,14 +319,6 @@ btn_voltar_sala2 = ctk.CTkButton(
 
 btn_voltar_sala2.pack(pady=10)
 
-# --------------------------------------------------
-# 4. TELA ASSENTOS SALA 1
-# --------------------------------------------------
-
-frame_assentos_sala1 = ctk.CTkFrame(
-    app,
-    fg_color="#424242"
-)
 
 # --------------------------------------------------
 # DEFINE QUAL TELA ABRE PRIMEIRO
