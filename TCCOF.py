@@ -1,16 +1,35 @@
 import customtkinter as ctk
 import psycopg as pg
+from tkinter import messagebox
 from PIL import Image
 
-#aaa
-DB_CONFIG = {
-    'dbname': 'cinema',
-    'user': 'postgres',
-    'password': 'root',
-    'host': 'localhost',
-    'port': '5432'
-}
 
+def clique_botao():
+    try:
+        # Uso o bloco 'with' para fechar conexão e cursor automaticamente
+        with pg.connect(
+            host='localhost',
+            dbname='cinema',
+            port=5432,
+            user='postgres',
+            password='root'
+        ) as conexao:
+            with conexao.cursor() as cursor:
+                # IF NOT EXISTS evita erro se o botão for clicado mais de uma vez
+                cursor.execute("""
+                    CREATE TABLE IF NOT EXISTS usuarios (
+                        id INT PRIMARY KEY,
+                        nome VARCHAR(100) NOT NULL,
+                        email VARCHAR(100)  
+                    );
+                """)
+            # Confirma as alterações no banco de dados
+            conexao.commit()
+            
+        messagebox.showinfo("Sucesso", "Tabela 'usuarios' verificada/criada com sucesso!")
+
+    except Exception as e:
+        messagebox.showerror("Erro de Conexão/SQL", f"Ocorreu um erro:\n{e}")
 
 
 # ==========================================================
@@ -198,6 +217,16 @@ lbl_inicial = ctk.CTkLabel(
 lbl_inicial.place(
     x=460,
     y=90
+)
+
+btn_atualizar_db = ctk.CTkButton(
+    frame_inicial,
+    text="Update database",
+    command=clique_botao
+)
+btn_atualizar_db.place(
+    x=400,
+    y=350
 )
 
 
