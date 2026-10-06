@@ -2,7 +2,7 @@ import customtkinter as ctk
 import psycopg as pg
 from PIL import Image
 
-
+#aaa
 DB_CONFIG = {
     'dbname': 'cinema',
     'user': 'postgres',
