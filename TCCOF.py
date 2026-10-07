@@ -93,16 +93,29 @@ def mostrar_mapa_de_assentos1():
         expand=True
     )
 
+# ==========================================================
+# FUNÇÃO PARA TROCAR A COR DA CADEIRA CLICADA
+# ==========================================================
+
+def troca_cor(botao):
+    
+    if botao.cget("fg_color") == "#2FA572":
+        botao.configure(fg_color="#ff0000")
+    else:
+        botao.configure(fg_color="#2FA572")
+
 
 # ==========================================================
 # FUNÇÃO PARA SELECIONAR CADEIRA
 # ==========================================================
 
-def selecionar_cadeira(codigo):
+def selecionar_cadeira(codigo, botao):
     """
     Função executada quando o usuário
     clica em uma cadeira.
     """
+
+    troca_cor(botao)
 
     print(f"Cadeira selecionada: {codigo}")
 
@@ -124,11 +137,6 @@ def CriarMapaDeCadeiras():
     # Percorre as fileiras
     for x in range(FILEIRAS):
 
-        # chr(65) = A
-        # chr(66) = B
-        # chr(67) = C
-        # etc.
-
         letra = chr(65 + x)
 
         # Calcula a posição vertical
@@ -142,6 +150,7 @@ def CriarMapaDeCadeiras():
             # Calcula a posição horizontal
             pos_x = 430 + (y - 1) * (largura_btn + espaco_x)
 
+            # Cria o botão
             botao_cadeira = ctk.CTkButton(
                 frame_assentos_sala1,
                 text=codigo,
@@ -149,15 +158,21 @@ def CriarMapaDeCadeiras():
                 height=altura_btn,
                 fg_color="#2FA572",
                 hover_color="#1E6B4A",
+            )
 
-                # Cada botão envia seu próprio código
-                command=lambda c=codigo: selecionar_cadeira(c)
+            # Configura o comando depois que o botão existe
+            botao_cadeira.configure(
+                command=lambda 
+                c=codigo, 
+                b=botao_cadeira:
+                selecionar_cadeira(c, b)
             )
 
             botao_cadeira.place(
                 x=pos_x,
                 y=pos_y
             )
+
 
 
 # ==========================================================
@@ -229,7 +244,6 @@ btn_atualizar_db.place(
     y=350
 )
 
-
 btn_ir_sala1 = ctk.CTkButton(
     frame_inicial,
     text="Salas e Sessões",
@@ -268,7 +282,6 @@ frame_sala1 = ctk.CTkFrame(
     app,
     fg_color="#424242"
 )
-
 
 lblsala1 = ctk.CTkLabel(
     frame_sala1,
